@@ -10,3 +10,17 @@ LINE_RE = re.compile(
     r'"(?P<method>\S+) (?P<path>\S+) [^"]+" '
     r'(?P<status>\d{3}) (?P<size>\S+)'
 )
+
+def parse_line(line: str) -> Optional[ParsedLine]:
+    """Parse a single log line; return None on malformed input."""
+    m = LINE_RE.match(line.strip())
+    if not m:
+        return None
+    g = m.groupdict()
+    return ParsedLine(
+        ip=g["ip"],
+        method=g["method"],
+        path=g["path"],
+        status=int(g["status"]),
+        size=int(g["size"]) if g["size"].isdigit() else 0,
+    )
