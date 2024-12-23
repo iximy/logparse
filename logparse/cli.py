@@ -15,7 +15,14 @@ def main(argv=None) -> int:
 
 
 def _handle_stats(path: str) -> int:
-    print(f"analyzing {path}")
+    from .parser import parse_line
+
+    total = 0
+    with open(path, "r", encoding="utf-8", errors="replace") as f:
+        for line in f:
+            if parse_line(line):
+                total += 1
+    print(f"parsed lines: {total}")
     return 0
 
 
