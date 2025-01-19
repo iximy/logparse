@@ -15,3 +15,11 @@ class StatusAggregator:
     def add(self, line: ParsedLine) -> None:
         self._status[line.status] += 1
         self._path[line.path] += 1
+
+    def top_paths(self, n: int = 10) -> List[Tuple[str, int]]:
+        """Return the n most requested paths, most frequent first."""
+        return self._path.most_common(n)
+
+    def status_counts(self) -> List[Tuple[int, int]]:
+        """Return (status_code, count) pairs sorted by code."""
+        return sorted(self._status.items())
