@@ -23,3 +23,11 @@ class StatusAggregator:
     def status_counts(self) -> List[Tuple[int, int]]:
         """Return (status_code, count) pairs sorted by code."""
         return sorted(self._status.items())
+
+
+def aggregate(lines: Iterable[ParsedLine]) -> StatusAggregator:
+    """Convenience wrapper: build an aggregator from any iterable."""
+    agg = StatusAggregator()
+    for line in lines:
+        agg.add(line)
+    return agg
