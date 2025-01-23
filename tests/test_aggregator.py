@@ -18,3 +18,9 @@ def test_top_paths_orders_by_count():
         _line("/a", 200), _line("/a", 200), _line("/b", 200),
     ])
     assert agg.top_paths(1) == [("/a", 2)]
+
+
+def test_empty_input():
+    agg = aggregate([])
+    assert agg.status_counts() == []
+    assert agg.top_paths() == []
