@@ -13,7 +13,7 @@ LINE_RE = re.compile(
 
 def parse_line(line: str) -> Optional[ParsedLine]:
     """Parse a single log line; return None on malformed input."""
-    m = LINE_RE.match(line.strip())
+    m = LINE_RE.match(line.rstrip("\n").strip())
     if not m:
         return None
     g = m.groupdict()
