@@ -13,6 +13,8 @@ class StatusAggregator:
         self._path: Counter = Counter()
 
     def add(self, line: ParsedLine) -> None:
+        if line.status <= 0:
+            return
         self._status[line.status] += 1
         self._path[line.path] += 1
 
