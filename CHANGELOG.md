@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.0] - unreleased
+
+### Added
+- JSON output formatter.
+- `aggregate()` convenience helper.
+
+### Fixed
+- Parser now strips trailing whitespace.
+- Aggregator ignores non-positive status codes.
+
+# Changelog
+
 ## [0.1.0] - unreleased
 
 ### Added
