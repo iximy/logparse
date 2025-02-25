@@ -24,3 +24,8 @@ def test_empty_input():
     agg = aggregate([])
     assert agg.status_counts() == []
     assert agg.top_paths() == []
+
+
+def test_skips_non_positive_status():
+    agg = aggregate([_line("/x", 0), _line("/x", 200)])
+    assert agg.status_counts() == [(200, 1)]
