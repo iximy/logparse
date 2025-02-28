@@ -5,12 +5,28 @@ from typing import Iterable, List, Tuple
 from .models import ParsedLine
 
 
+class _Counter:
+    """Thin wrapper over Counter."""
+
+    def __init__(self) -> None:
+        self._c: Counter = Counter()
+
+    def inc(self, key) -> None:
+        self._c[key] += 1
+
+    def items(self):
+        return self._c.items()
+
+    def most_common(self, n: int):
+        return self._c.most_common(n)
+
+
 class StatusAggregator:
     """Counts parsed lines grouped by a chosen key."""
 
     def __init__(self) -> None:
-        self._status: Counter = Counter()
-        self._path: Counter = Counter()
+        self._status = _Counter()
+        self._path = _Counter()
 
     def add(self, line: ParsedLine) -> None:
         if line.status <= 0:
