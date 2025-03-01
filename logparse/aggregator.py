@@ -31,8 +31,8 @@ class StatusAggregator:
     def add(self, line: ParsedLine) -> None:
         if line.status <= 0:
             return
-        self._status[line.status] += 1
-        self._path[line.path] += 1
+        self._status.inc(line.status)
+        self._path.inc(line.path)
 
     def top_paths(self, n: int = 10) -> List[Tuple[str, int]]:
         """Return the n most requested paths, most frequent first."""
