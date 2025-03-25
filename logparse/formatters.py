@@ -1,4 +1,7 @@
-"""Output formatters for logparse results."""
+"""Output formatters for logparse results.
+
+Functions take a StatusAggregator and return a string ready to print.
+"""
 from typing import List, Tuple
 
 from .aggregator import StatusAggregator
