@@ -26,3 +26,12 @@ def test_parse_empty_line_returns_none():
 def test_parse_missing_size_field_yields_zero():
     line = '1.1.1.1 - - [x] "GET / HTTP/1.1" 200 -'
     assert parse_line(line).size == 0
+
+
+import pytest
+
+
+@pytest.mark.parametrize("status", [200, 301, 404, 500])
+def test_parses_various_status_codes(status):
+    line = f'1.1.1.1 - - [x] "GET / HTTP/1.1" {status} 0'
+    assert parse_line(line).status == status
