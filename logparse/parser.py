@@ -24,3 +24,9 @@ def parse_line(line: str) -> Optional[ParsedLine]:
         status=int(g["status"]),
         size=int(g["size"]) if g["size"].isdigit() else 0,
     )
+
+CLF_RE = re.compile(
+    r'^(?P<ip>\S+) \S+ \S+ \[(?P<ts>[^\]]+)\] '
+    r'"(?P<method>\S+) (?P<path>\S+) [^"]+" '
+    r'(?P<status>\d{3}) (?P<size>\S+)'
+)
