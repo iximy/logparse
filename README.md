@@ -17,3 +17,7 @@ requested paths.
 
     make install
     make test
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
