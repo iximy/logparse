@@ -30,3 +30,18 @@ CLF_RE = re.compile(
     r'"(?P<method>\S+) (?P<path>\S+) [^"]+" '
     r'(?P<status>\d{3}) (?P<size>\S+)'
 )
+
+
+def parse_line_auto(line: str) -> Optional[ParsedLine]:
+    """Try combined format first, then CLF as fallback."""
+    return parse_line(line) or _parse_clf(line)
+
+
+def _parse_clf(line: str) -> Optional[ParsedLine]:
+    m = CLF_RE.match(line.strip())
+    if not m:
+        return None
+    g = m.groupdict()
+    return ParsedLine(ip=g["ip"], method=g["method"],
+                      path=g["path"], status=int(g["status"]),
+                      size=int(g["size"]) if g["size"].isdigit() else 0)
