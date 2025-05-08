@@ -42,3 +42,8 @@ def test_parse_clf_line():
     line = '1.2.3.4 - - [01/Jan/2025:00:00:00 +0000] "GET /a HTTP/1.0" 200 1'
     r = parse_line_auto(line)
     assert r is not None and r.status == 200
+
+
+def test_parse_clf_malformed():
+    from logparse.parser import parse_line_auto
+    assert parse_line_auto("1.1.1.1 -") is None
