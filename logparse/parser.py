@@ -45,3 +45,14 @@ def _parse_clf(line: str) -> Optional[ParsedLine]:
     return ParsedLine(ip=g["ip"], method=g["method"],
                       path=g["path"], status=int(g["status"]),
                       size=int(g["size"]) if g["size"].isdigit() else 0)
+
+
+from typing import Iterator
+
+
+def iter_parse_lines(lines: Iterator[str]) -> Iterator[ParsedLine]:
+    """Yield ParsedLine for every valid line; skip bad ones."""
+    for raw in lines:
+        parsed = parse_line_auto(raw)
+        if parsed is not None:
+            yield parsed
