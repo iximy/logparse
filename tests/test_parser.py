@@ -35,3 +35,10 @@ import pytest
 def test_parses_various_status_codes(status):
     line = f'1.1.1.1 - - [x] "GET / HTTP/1.1" {status} 0'
     assert parse_line(line).status == status
+
+
+def test_parse_clf_line():
+    from logparse.parser import parse_line_auto
+    line = '1.2.3.4 - - [01/Jan/2025:00:00:00 +0000] "GET /a HTTP/1.0" 200 1'
+    r = parse_line_auto(line)
+    assert r is not None and r.status == 200
