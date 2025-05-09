@@ -15,13 +15,10 @@ def main(argv=None) -> int:
 
 
 def _handle_stats(path: str) -> int:
-    from .parser import parse_line
+    from .parser import iter_parse_lines
 
-    total = 0
     with open(path, "r", encoding="utf-8", errors="replace") as f:
-        for line in f:
-            if parse_line(line):
-                total += 1
+        total = sum(1 for _ in iter_parse_lines(f))
     print(f"parsed lines: {total}")
     return 0
 
