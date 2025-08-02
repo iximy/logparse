@@ -47,3 +47,11 @@ def test_parse_clf_line():
 def test_parse_clf_malformed():
     from logparse.parser import parse_line_auto
     assert parse_line_auto("1.1.1.1 -") is None
+
+
+def test_iter_parse_lines_skips_bad():
+    from logparse.parser import iter_parse_lines
+    good = '1.1.1.1 - - [x] "GET / HTTP/1.1" 200 5'
+    bad = "garbage"
+    out = list(iter_parse_lines(iter([good, bad, good])))
+    assert len(out) == 2
