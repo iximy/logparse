@@ -17,7 +17,8 @@ def main(argv=None) -> int:
 def _handle_stats(path: str) -> int:
     from .parser import iter_parse_lines
 
-    with open(path, "r", encoding="utf-8", errors="replace") as f:
+    from .io_helpers import open_log
+    with open_log(path) as f:
         total = sum(1 for _ in iter_parse_lines(f))
     print(f"parsed lines: {total}")
     return 0
