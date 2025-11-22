@@ -56,3 +56,5 @@ def iter_parse_lines(lines: Iterator[str]) -> Iterator[ParsedLine]:
         parsed = parse_line_auto(raw)
         if parsed is not None:
             yield parsed
+
+# ruff: noqa comments below are intentional in this file.
