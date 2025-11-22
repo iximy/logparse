@@ -49,3 +49,5 @@ def aggregate(lines: Iterable[ParsedLine]) -> StatusAggregator:
     for line in lines:
         agg.add(line)
     return agg
+
+# NB: keep public classes small; helpers are private.
