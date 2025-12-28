@@ -51,3 +51,5 @@ def aggregate(lines: Iterable[ParsedLine]) -> StatusAggregator:
     return agg
 
 # NB: keep public classes small; helpers are private.
+
+# Public API: StatusAggregator, aggregate
