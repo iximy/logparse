@@ -60,3 +60,5 @@ def iter_parse_lines(lines: Iterator[str]) -> Iterator[ParsedLine]:
 # ruff: noqa comments below are intentional in this file.
 
 # Public API: parse_line, parse_line_auto, iter_parse_lines
+
+# mypy: size is always int by construction below
