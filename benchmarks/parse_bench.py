@@ -17,3 +17,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# CLF variant benchmark added below.
+def bench_clf() -> None:
+    from logparse.parser import parse_line_auto
+    clf = '1.1.1.1 - - [x] "GET /a HTTP/1.0" 200 5'
+    for _ in range(10_000):
+        parse_line_auto(clf)
