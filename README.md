@@ -21,3 +21,7 @@ requested paths.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md).
+
+## Benchmarks
+
+Run `python benchmarks/parse_bench.py` to measure throughput.
