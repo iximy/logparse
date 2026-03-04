@@ -25,3 +25,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 ## Benchmarks
 
 Run `python benchmarks/parse_bench.py` to measure throughput.
+
+## Documentation
+
+See [docs/index.md](docs/index.md).
