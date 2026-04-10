@@ -55,3 +55,8 @@ def test_iter_parse_lines_skips_bad():
     bad = "garbage"
     out = list(iter_parse_lines(iter([good, bad, good])))
     assert len(out) == 2
+
+
+def test_ipv6_address():
+    line = '::1 - - [x] "GET / HTTP/1.1" 200 0'
+    assert parse_line(line).ip == "::1"
