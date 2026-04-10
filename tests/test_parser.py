@@ -60,3 +60,8 @@ def test_iter_parse_lines_skips_bad():
 def test_ipv6_address():
     line = '::1 - - [x] "GET / HTTP/1.1" 200 0'
     assert parse_line(line).ip == "::1"
+
+
+def test_query_string_kept():
+    line = '1.1.1.1 - - [x] "GET /s?q=a HTTP/1.1" 200 0'
+    assert "?q=a" in parse_line(line).path
