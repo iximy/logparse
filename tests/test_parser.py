@@ -65,3 +65,8 @@ def test_ipv6_address():
 def test_query_string_kept():
     line = '1.1.1.1 - - [x] "GET /s?q=a HTTP/1.1" 200 0'
     assert "?q=a" in parse_line(line).path
+
+
+def test_unicode_path():
+    line = '1.1.1.1 - - [x] "GET /тест HTTP/1.1" 200 0'
+    assert parse_line(line).path == "/тест"
