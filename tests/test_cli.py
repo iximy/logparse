@@ -10,3 +10,10 @@ def test_cli_parses_sample_log(tmp_path: Path):
     )
     assert out.returncode == 0
     assert "parsed lines:" in out.stdout
+
+
+def test_cli_missing_file():
+    import subprocess, sys
+    r = subprocess.run([sys.executable, "-m", "logparse.cli", "stats"],
+                       capture_output=True, text=True)
+    assert r.returncode != 0
