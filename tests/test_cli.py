@@ -26,3 +26,10 @@ def test_cli_empty_file(tmp_path):
     r = subprocess.run([sys.executable, "-m", "logparse.cli", "stats", str(p)],
                        capture_output=True, text=True)
     assert "parsed lines: 0" in r.stdout
+
+
+def test_cli_help():
+    import subprocess, sys
+    r = subprocess.run([sys.executable, "-m", "logparse.cli", "--help"],
+                       capture_output=True, text=True)
+    assert r.returncode == 0
