@@ -17,3 +17,12 @@ def test_cli_missing_file():
     r = subprocess.run([sys.executable, "-m", "logparse.cli", "stats"],
                        capture_output=True, text=True)
     assert r.returncode != 0
+
+
+def test_cli_empty_file(tmp_path):
+    import subprocess, sys
+    p = tmp_path / "empty.log"
+    p.write_text("")
+    r = subprocess.run([sys.executable, "-m", "logparse.cli", "stats", str(p)],
+                       capture_output=True, text=True)
+    assert "parsed lines: 0" in r.stdout
