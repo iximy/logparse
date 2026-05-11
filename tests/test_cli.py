@@ -33,3 +33,13 @@ def test_cli_help():
     r = subprocess.run([sys.executable, "-m", "logparse.cli", "--help"],
                        capture_output=True, text=True)
     assert r.returncode == 0
+
+
+def test_cli_gzip(tmp_path):
+    import gzip, subprocess, sys
+    p = tmp_path / "a.log.gz"
+    with gzip.open(p, "wt", encoding="utf-8") as f:
+        f.write('1.1.1.1 - - [x] "GET / HTTP/1.1" 200 1\n')
+    r = subprocess.run([sys.executable, "-m", "logparse.cli", "stats", str(p)],
+                       capture_output=True, text=True)
+    assert "parsed lines: 1" in r.stdout
