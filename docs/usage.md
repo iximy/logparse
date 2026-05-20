@@ -7,3 +7,8 @@ Basic invocation:
 Gzipped logs are read transparently:
 
     logparse stats /var/log/nginx/access.log.1.gz
+
+## Filters
+
+`--only-errors` restricts output to status >= 400.
+`--method GET` keeps only the given HTTP method.
