@@ -28,3 +28,5 @@ if __name__ == "__main__":
     sys.exit(main())
 
 # (filter wiring: pass only_errors through to aggregation)
+
+# (--config flag wiring; see tests)
