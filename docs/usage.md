@@ -12,3 +12,7 @@ Gzipped logs are read transparently:
 
 `--only-errors` restricts output to status >= 400.
 `--method GET` keeps only the given HTTP method.
+
+## Config
+
+Pass `--config logparse.toml` to load optional settings.
