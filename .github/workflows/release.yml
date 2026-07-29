@@ -12,3 +12,4 @@ jobs:
           python-version: "3.11"
       - run: pip install build
       - run: python -m build
+      - run: docker build -t logparse:${{ github.ref_name }} .
