@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0] - unreleased
+
+### Added
+- CLF parser fallback.
+- Streaming parse (`iter_parse_lines`).
+- Gzip / bz2 log support.
+- `--only-errors` and `--method` filters.
+- Optional TOML config.
+- Dockerfile.
+
+# Changelog
+
 ## [0.2.0] - unreleased
 
 ### Added
