@@ -29,3 +29,7 @@ Run `python benchmarks/parse_bench.py` to measure throughput.
 ## Documentation
 
 See [docs/index.md](docs/index.md).
+
+## v0.3.0
+
+CLF support, streaming parser, gzip logs, filters, config, Docker.
