@@ -11,4 +11,4 @@ def open_log(path: str) -> IO[str]:
         return gzip.open(p, "rt", encoding="utf-8", errors="replace")
     if p.suffix == ".bz2":
         return bz2.open(p, "rt", encoding="utf-8", errors="replace")
-    return open(p, "r", encoding="utf-8", errors="replace")
+    return open(p, "r", encoding="utf-8", errors="replace", newline="")
