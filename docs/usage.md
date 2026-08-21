@@ -16,3 +16,7 @@ Gzipped logs are read transparently:
 ## Config
 
 Pass `--config logparse.toml` to load optional settings.
+
+## Windows
+
+logparse works on Windows; CRLF is preserved for log files.
