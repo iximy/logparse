@@ -24,3 +24,10 @@ def bench_clf() -> None:
     clf = '1.1.1.1 - - [x] "GET /a HTTP/1.0" 200 5'
     for _ in range(10_000):
         parse_line_auto(clf)
+
+
+def bench_cache() -> None:
+    from logparse.cache import cache_parse
+    line = '1.1.1.1 - - [x] "GET / HTTP/1.1" 200 0'
+    for _ in range(10_000):
+        cache_parse(line)
