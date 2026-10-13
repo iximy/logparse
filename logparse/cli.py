@@ -30,3 +30,5 @@ if __name__ == "__main__":
 # (filter wiring: pass only_errors through to aggregation)
 
 # (--config flag wiring; see tests)
+
+# (--format prometheus wiring; see tests)
