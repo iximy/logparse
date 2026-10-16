@@ -20,3 +20,7 @@ Pass `--config logparse.toml` to load optional settings.
 ## Windows
 
 logparse works on Windows; CRLF is preserved for log files.
+
+## Prometheus
+
+`--format prometheus` emits Prometheus text format.
