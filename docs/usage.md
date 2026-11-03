@@ -24,3 +24,7 @@ logparse works on Windows; CRLF is preserved for log files.
 ## Prometheus
 
 `--format prometheus` emits Prometheus text format.
+
+## SQLite export
+
+`from logparse.export_sqlite import export` dumps parsed lines into SQLite.
